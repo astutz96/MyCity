@@ -10,206 +10,206 @@ object dataSource {
     @SuppressLint("ResourceType")
     val cityCatories = listOf<Category>(
         Category(
-            R.string.category_1, 1, listOf<Recommendation>(
+            R.string.category_1, R.drawable.burger_1, listOf<Recommendation>(
                 Recommendation(
                     R.string.category_1_recommendation_1,
                     R.string.category_1_recommendation_1_details,
-                    1
+                    R.drawable.burger_1
                 ),
                 Recommendation(
                     R.string.category_1_recommendation_2,
                     R.string.category_1_recommendation_2_details,
-                    1
+                    R.drawable.burger_1
                 ),
                 Recommendation(
                     R.string.category_1_recommendation_3,
                     R.string.category_1_recommendation_3_details,
-                    1
+                    R.drawable.burger_1
                 ),
                 Recommendation(
                     R.string.category_1_recommendation_4,
                     R.string.category_1_recommendation_4_details,
-                    1
+                    R.drawable.burger_1
                 ),
                 Recommendation(
                     R.string.category_1_recommendation_5,
                     R.string.category_1_recommendation_5_details,
-                    1
+                    R.drawable.burger_1
                 ),
                 Recommendation(
                     R.string.category_1_recommendation_6,
                     R.string.category_1_recommendation_6_details,
-                    1
+                    R.drawable.burger_1
                 ),
             )
         ),
         Category(
-            R.string.category_2, 1, listOf<Recommendation>(
+            R.string.category_2, R.drawable.pizza_1, listOf<Recommendation>(
                 Recommendation(
                     R.string.category_2_recommendation_1,
                     R.string.category_2_recommendation_1_details,
-                    1
+                    R.drawable.pizza_1
                 ),
                 Recommendation(
                     R.string.category_2_recommendation_2,
                     R.string.category_2_recommendation_2_details,
-                    1
+                    R.drawable.pizza_1
                 ),
                 Recommendation(
                     R.string.category_2_recommendation_3,
                     R.string.category_2_recommendation_3_details,
-                    1
+                    R.drawable.pizza_1
                 ),
                 Recommendation(
                     R.string.category_2_recommendation_4,
                     R.string.category_2_recommendation_4_details,
-                    1
+                    R.drawable.pizza_1
                 ),
                 Recommendation(
                     R.string.category_2_recommendation_5,
                     R.string.category_2_recommendation_5_details,
-                    1
+                    R.drawable.pizza_1
                 ),
                 Recommendation(
                     R.string.category_2_recommendation_6,
                     R.string.category_2_recommendation_6_details,
-                    1
+                    R.drawable.pizza_1
                 ),
             )
         ),
         Category(
-            R.string.category_3, 1, listOf<Recommendation>(
+            R.string.category_3, R.drawable.taco_1, listOf<Recommendation>(
                 Recommendation(
                     R.string.category_3_recommendation_1,
                     R.string.category_3_recommendation_1_details,
-                    1
+                    R.drawable.taco_1
                 ),
                 Recommendation(
                     R.string.category_3_recommendation_2,
                     R.string.category_3_recommendation_2_details,
-                    1
+                    R.drawable.taco_1
                 ),
                 Recommendation(
                     R.string.category_3_recommendation_3,
                     R.string.category_3_recommendation_3_details,
-                    1
+                    R.drawable.taco_1
                 ),
                 Recommendation(
                     R.string.category_3_recommendation_4,
                     R.string.category_3_recommendation_4_details,
-                    1
+                    R.drawable.taco_1
                 ),
                 Recommendation(
                     R.string.category_3_recommendation_5,
                     R.string.category_3_recommendation_5_details,
-                    1
+                    R.drawable.taco_1
                 ),
                 Recommendation(
                     R.string.category_3_recommendation_6,
                     R.string.category_3_recommendation_6_details,
-                    1
+                    R.drawable.taco_1
                 ),
             )
         ),
         Category(
-            R.string.category_4, 1, listOf<Recommendation>(
+            R.string.category_4, R.drawable.pretzel_1, listOf<Recommendation>(
                 Recommendation(
                     R.string.category_4_recommendation_1,
                     R.string.category_4_recommendation_1_details,
-                    1
+                    R.drawable.pretzel_1
                 ),
                 Recommendation(
                     R.string.category_4_recommendation_2,
                     R.string.category_4_recommendation_2_details,
-                    1
+                    R.drawable.pretzel_1
                 ),
                 Recommendation(
                     R.string.category_4_recommendation_3,
                     R.string.category_4_recommendation_3_details,
-                    1
+                    R.drawable.pretzel_1
                 ),
                 Recommendation(
                     R.string.category_4_recommendation_4,
                     R.string.category_4_recommendation_4_details,
-                    1
+                    R.drawable.pretzel_1
                 ),
                 Recommendation(
                     R.string.category_4_recommendation_5,
                     R.string.category_4_recommendation_5_details,
-                    1
+                    R.drawable.pretzel_1
                 ),
                 Recommendation(
                     R.string.category_4_recommendation_6,
                     R.string.category_4_recommendation_6_details,
-                    1
+                    R.drawable.pretzel_1
                 ),
             )
         ),
         Category(
-            R.string.category_5, 1, listOf<Recommendation>(
+            R.string.category_5, R.drawable.lasagna_1, listOf<Recommendation>(
                 Recommendation(
                     R.string.category_5_recommendation_1,
                     R.string.category_5_recommendation_1_details,
-                    1
+                    R.drawable.lasagna_1
                 ),
                 Recommendation(
                     R.string.category_5_recommendation_2,
                     R.string.category_5_recommendation_2_details,
-                    1
+                    R.drawable.lasagna_1
                 ),
                 Recommendation(
                     R.string.category_5_recommendation_3,
                     R.string.category_5_recommendation_3_details,
-                    1
+                    R.drawable.lasagna_1
                 ),
                 Recommendation(
                     R.string.category_5_recommendation_4,
                     R.string.category_5_recommendation_4_details,
-                    1
+                    R.drawable.lasagna_1
                 ),
                 Recommendation(
                     R.string.category_5_recommendation_5,
                     R.string.category_5_recommendation_5_details,
-                    1
+                    R.drawable.lasagna_1
                 ),
                 Recommendation(
                     R.string.category_5_recommendation_6,
                     R.string.category_5_recommendation_6_details,
-                    1
+                    R.drawable.lasagna_1
                 ),
             )
         ),
         Category(
-            R.string.category_6, 1, listOf<Recommendation>(
+            R.string.category_6, R.drawable.chinese_1, listOf<Recommendation>(
                 Recommendation(
                     R.string.category_6_recommendation_1,
                     R.string.category_6_recommendation_1_details,
-                    1
+                    R.drawable.chinese_1
                 ),
                 Recommendation(
                     R.string.category_6_recommendation_2,
                     R.string.category_6_recommendation_2_details,
-                    1
+                    R.drawable.chinese_1
                 ),
                 Recommendation(
                     R.string.category_6_recommendation_3,
                     R.string.category_6_recommendation_3_details,
-                    1
+                    R.drawable.chinese_1
                 ),
                 Recommendation(
                     R.string.category_6_recommendation_4,
                     R.string.category_6_recommendation_4_details,
-                    1
+                    R.drawable.chinese_1
                 ),
                 Recommendation(
                     R.string.category_6_recommendation_5,
                     R.string.category_6_recommendation_5_details,
-                    1
+                    R.drawable.chinese_1
                 ),
                 Recommendation(
                     R.string.category_6_recommendation_6,
                     R.string.category_6_recommendation_6_details,
-                    1
+                    R.drawable.chinese_1
                 ),
             )
         )
