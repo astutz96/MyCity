@@ -39,10 +39,12 @@ fun MyCityHomeScreen() {
 @Composable
 fun MyCityCategoryItem(category: Category) {
 
-    Row(modifier = Modifier
-        .fillMaxWidth(),
+    Row(
+        modifier = Modifier
+            .fillMaxWidth(),
         horizontalArrangement = Arrangement.Start,
-        verticalAlignment = Alignment.CenterVertically) {
+        verticalAlignment = Alignment.CenterVertically
+    ) {
         Image(
             painter = painterResource(id = category.imageResourceId), contentDescription = null,
             modifier = Modifier
@@ -51,7 +53,11 @@ fun MyCityCategoryItem(category: Category) {
             contentScale = ContentScale.Crop
         )
         Spacer(modifier = Modifier.width(16.dp))
-        Text(text = stringResource(id = category.name), fontFamily = FontFamily.SansSerif, fontSize = 24.sp)
+        Text(
+            text = stringResource(id = category.name),
+            fontFamily = FontFamily.SansSerif,
+            fontSize = 24.sp
+        )
     }
 }
 
