@@ -31,7 +31,7 @@ import com.example.mycity.model.Category
 
 
 @Composable
-fun MyCityHomeScreen(onCategoryClicked : (category : Category) -> Unit) {
+fun MyCityHomeScreen(onCategoryClicked: (category: Category) -> Unit) {
 
     val cityCategories = dataSource.cityCatories
     Box(modifier = Modifier.padding(8.dp)) {
@@ -46,13 +46,11 @@ fun MyCityHomeScreen(onCategoryClicked : (category : Category) -> Unit) {
 @Composable
 fun MyCityCategoryItem(category: Category, onCategoryClicked: (category: Category) -> Unit) {
 
-    Card(
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
+    Card(elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
         shape = RoundedCornerShape(size = 8.dp),
         modifier = Modifier.clickable {
             onCategoryClicked(category)
-        }
-    ) {
+        }) {
         Row(
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.Start,

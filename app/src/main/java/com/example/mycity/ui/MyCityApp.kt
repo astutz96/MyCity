@@ -26,15 +26,12 @@ fun MyCityApp() {
 
     Scaffold(
         topBar = {
-            TopAppBar(
-                colors = TopAppBarDefaults.smallTopAppBarColors(
-                    containerColor = MaterialTheme.colorScheme.primaryContainer,
-                    titleContentColor = MaterialTheme.colorScheme.primary,
-                ),
-                title = {
-                    Text("My City")
-                }
-            )
+            TopAppBar(colors = TopAppBarDefaults.smallTopAppBarColors(
+                containerColor = MaterialTheme.colorScheme.primaryContainer,
+                titleContentColor = MaterialTheme.colorScheme.primary,
+            ), title = {
+                Text("My City")
+            })
         },
     ) { innerPadding ->
 
@@ -54,7 +51,11 @@ fun MyCityApp() {
                 })
             }
             composable(route = "MyCityCategoryRecommendationsScreen") {
-                Text("MyCityCategoryRecommendationsScreen")
+                MyCityCategoryRecommendationsScreen(
+                    myCityUiState = uiState,
+                    onRecommendationClicked = {
+                        navController.navigate("MyCityCategoryRecommendationDetailsScreen")
+                    })
             }
             composable(route = "MyCityCategoryRecommendationDetailsScreen") {
                 Text("MyCityCategoryRecommendationDetailsScreen")
