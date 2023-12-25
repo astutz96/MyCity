@@ -1,7 +1,11 @@
 package com.example.mycity.ui
 
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
@@ -14,7 +18,9 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -24,14 +30,23 @@ fun MyCityApp() {
     val navController = rememberNavController()
     val viewModel: MyCityViewModel = viewModel()
 
+    //The navController will trigger a re-compose whenever the user nagivates to a new screen on the stack,
+    // causing this to update to the current back stack entry (whatever is on top of stack now)
+    val backStackEntry by navController.currentBackStackEntryAsState()
+    // Get the name of the current screen
+    val currentScreen = backStackEntry?.destination?.route ?: "MyCityHomeScreen"
+        // ?. is a null save call operator, returning either the object.property value, or NULL if the object is null
+
+
+
     Scaffold(
         topBar = {
-            TopAppBar(colors = TopAppBarDefaults.smallTopAppBarColors(
-                containerColor = MaterialTheme.colorScheme.primaryContainer,
-                titleContentColor = MaterialTheme.colorScheme.primary,
-            ), title = {
-                Text("My City")
-            })
+            MyCityAppToppAppBar(
+                currentScreen = currentScreen,
+                canNavigateBack = navController.previousBackStackEntry != null,
+                navigateUp = { navController.navigateUp() },
+                modifier = Modifier
+            )
         },
     ) { innerPadding ->
 
@@ -51,8 +66,7 @@ fun MyCityApp() {
                 })
             }
             composable(route = "MyCityCategoryRecommendationsScreen") {
-                MyCityCategoryRecommendationsScreen(
-                    myCityUiState = uiState,
+                MyCityCategoryRecommendationsScreen(myCityUiState = uiState,
                     onRecommendationClicked = {
                         navController.navigate("MyCityCategoryRecommendationDetailsScreen")
                     })
@@ -62,4 +76,30 @@ fun MyCityApp() {
             }
         }
     }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun MyCityAppToppAppBar(
+    currentScreen: String,
+    canNavigateBack: Boolean,
+    navigateUp: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    TopAppBar(colors = TopAppBarDefaults.smallTopAppBarColors(
+        containerColor = MaterialTheme.colorScheme.primaryContainer,
+        titleContentColor = MaterialTheme.colorScheme.primary,
+    ), title = {
+        Text(currentScreen)
+    }, navigationIcon = {
+        if (canNavigateBack) {
+            IconButton(onClick = navigateUp) {
+                Icon(
+                    imageVector = Icons.Filled.ArrowBack,
+                    contentDescription = "navigate back"
+                )
+            }
+        }
+    })
+
 }
