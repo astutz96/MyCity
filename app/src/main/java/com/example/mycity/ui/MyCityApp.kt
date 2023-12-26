@@ -68,11 +68,16 @@ fun MyCityApp() {
             composable(route = "MyCityCategoryRecommendationsScreen") {
                 MyCityCategoryRecommendationsScreen(myCityUiState = uiState,
                     onRecommendationClicked = {
+                        viewModel.updateSelectedReccomendation(reccomendation = it)
                         navController.navigate("MyCityCategoryRecommendationDetailsScreen")
                     })
             }
             composable(route = "MyCityCategoryRecommendationDetailsScreen") {
-                Text("MyCityCategoryRecommendationDetailsScreen")
+                uiState.selectedReccomendation?.let { it1 ->
+                    MyCityCategoryRecommendationDetailsScreen(
+                        it1
+                    )
+                }
             }
         }
     }

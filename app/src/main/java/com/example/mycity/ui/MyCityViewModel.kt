@@ -3,6 +3,7 @@ package com.example.mycity.ui
 import androidx.lifecycle.ViewModel
 import com.example.mycity.model.Category
 import com.example.mycity.model.MyCityUiState
+import com.example.mycity.model.Recommendation
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -18,6 +19,14 @@ class MyCityViewModel : ViewModel() {
         _uiState.update { currentState ->
             currentState.copy(
                 selectedCategory = category
+            )
+        }
+    }
+
+    fun updateSelectedReccomendation(reccomendation: Recommendation){
+        _uiState.update { currentState ->
+            currentState.copy(
+                selectedReccomendation = reccomendation
             )
         }
     }
