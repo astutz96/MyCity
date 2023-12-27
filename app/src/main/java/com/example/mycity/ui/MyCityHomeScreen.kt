@@ -3,7 +3,6 @@ package com.example.mycity.ui
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -23,22 +22,47 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontFamily
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.mycity.datasource.dataSource
 import com.example.mycity.model.Category
+import com.example.mycity.model.MyCityUiState
+import com.example.mycity.model.Recommendation
+import com.example.mycity.utils.MyCityContentType
 
 
 @Composable
-fun MyCityHomeScreen(onCategoryClicked: (category: Category) -> Unit) {
+fun MyCityHomeScreen(
+    onCategoryClicked: (category: Category) -> Unit,
+    onRecommendationClicked: (recommendation: Recommendation) -> Unit,
+    contentType: MyCityContentType,
+    myCityUiState: MyCityUiState
+) {
 
     val cityCategories = dataSource.cityCatories
-    Box(modifier = Modifier.padding(8.dp)) {
-        LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
+    Row(modifier = Modifier.padding(8.dp)) {
+
+        LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.weight(1f)) {
             items(cityCategories) {
                 MyCityCategoryItem(category = it, onCategoryClicked = onCategoryClicked)
             }
+        }
+
+        if(contentType == MyCityContentType.triple){
+
+            LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp), modifier = Modifier.weight(1f)) {
+                myCityUiState.selectedCategory?.let {
+                    items(it.recommendations) {
+                        RecommendationItem(
+                            recommendation = it,
+                            onRecommendationClicked = onRecommendationClicked
+                        )
+                    }
+                }
+            }
+
+            //MyCityCategoryRecommendationsScreen(myCityUiState = myCityUiState, onRecommendationClicked = onRecommendationClicked)
+            myCityUiState.selectedReccomendation?.let { MyCityCategoryRecommendationDetailsScreen(recommendation = it, modifier = Modifier.weight(1f)) }
         }
     }
 }
@@ -74,8 +98,8 @@ fun MyCityCategoryItem(category: Category, onCategoryClicked: (category: Categor
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun MyCityHomeScreenPreview() {
-    MyCityHomeScreen(onCategoryClicked = { })
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun MyCityHomeScreenPreview() {
+//    MyCityHomeScreen(onCategoryClicked = { })
+//}

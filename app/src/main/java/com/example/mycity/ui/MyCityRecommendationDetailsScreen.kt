@@ -2,7 +2,6 @@ package com.example.mycity.ui
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.ScrollState
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -21,27 +20,22 @@ import com.example.mycity.model.Recommendation
 import com.example.mycity.ui.theme.MyCityTheme
 
 @Composable
-fun MyCityCategoryRecommendationDetailsScreen(recommendation: Recommendation) {
+fun MyCityCategoryRecommendationDetailsScreen(recommendation: Recommendation, modifier: Modifier) {
 
-    Box(
-        modifier = Modifier
+    Column(
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier
+            .fillMaxWidth()
+            .verticalScroll(state = ScrollState(0), enabled = true)
             .padding(16.dp)
-            .fillMaxWidth(), contentAlignment = Alignment.Center
     ) {
-        Column(
-            horizontalAlignment = Alignment.CenterHorizontally,
-            modifier = Modifier
-                .fillMaxWidth()
-                .verticalScroll(state = ScrollState(0), enabled = true)
-        ) {
-            Image(
-                painter = painterResource(id = recommendation.imageResourceId),
-                contentDescription = null,
-                alignment = Alignment.Center,
-            )
-            Spacer(modifier = Modifier.padding(16.dp))
-            Text(stringResource(id = recommendation.details))
-        }
+        Image(
+            painter = painterResource(id = recommendation.imageResourceId),
+            contentDescription = null,
+            alignment = Alignment.Center,
+        )
+        Spacer(modifier = Modifier.padding(16.dp))
+        Text(stringResource(id = recommendation.details))
     }
 }
 
@@ -52,7 +46,8 @@ fun Preview() {
         MyCityCategoryRecommendationDetailsScreen(
             recommendation = dataSource.cityCatories.get(0).recommendations.get(
                 0
-            )
+            ),
+            modifier = Modifier
         )
     }
 }
